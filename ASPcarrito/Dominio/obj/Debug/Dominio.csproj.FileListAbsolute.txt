@@ -4,3 +4,9 @@ P:\UTN\Progra3\Repo\GestionArticulos\TP-WinForm_Equipo22\TPWinForm_Equipo22\Domi
 P:\UTN\Progra3\Repo\GestionArticulos\TP-WinForm_Equipo22\TPWinForm_Equipo22\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
 P:\UTN\Progra3\Repo\GestionArticulos\TP-WinForm_Equipo22\TPWinForm_Equipo22\Dominio\obj\Debug\Dominio.dll
 P:\UTN\Progra3\Repo\GestionArticulos\TP-WinForm_Equipo22\TPWinForm_Equipo22\Dominio\obj\Debug\Dominio.pdb
+P:\UTN\Progra3\ASP\Proyecto\ASP-P3\ASPcarrito\Dominio\bin\Debug\Dominio.dll
+P:\UTN\Progra3\ASP\Proyecto\ASP-P3\ASPcarrito\Dominio\bin\Debug\Dominio.pdb
+P:\UTN\Progra3\ASP\Proyecto\ASP-P3\ASPcarrito\Dominio\obj\Debug\Dominio.csproj.AssemblyReference.cache
+P:\UTN\Progra3\ASP\Proyecto\ASP-P3\ASPcarrito\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
+P:\UTN\Progra3\ASP\Proyecto\ASP-P3\ASPcarrito\Dominio\obj\Debug\Dominio.dll
+P:\UTN\Progra3\ASP\Proyecto\ASP-P3\ASPcarrito\Dominio\obj\Debug\Dominio.pdb

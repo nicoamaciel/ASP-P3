@@ -59,7 +59,7 @@ namespace Catalogo
 
             try
             {
-                datos.setearProcedimiento("storedListar");
+                datos.setearProcedimiento("storedListarURL");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
@@ -74,6 +74,8 @@ namespace Catalogo
                     aux.Categoria = new Categorias();
                     aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
                     aux.Precio = (decimal)datos.Lector["Precio"];
+                    aux.URL = new Imagenes();
+                    aux.URL.ImagenURL = (string)datos.Lector["ImagenUrl"];
 
                     lista.Add(aux);
 
