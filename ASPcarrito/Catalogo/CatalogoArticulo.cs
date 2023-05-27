@@ -11,33 +11,6 @@ namespace Catalogo
 {
     public class ElementosCatalogo
     {
-        public void cargarArticulo(Articulos nuevos)
-        {
-                // Crear instancia de AccesoDatos
-                AccesoDatos datos = new AccesoDatos();
-                try
-                {
-                    // Setear consulta SQL para insertar nuevo artículo
-                    datos.setearConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio) " +
-                          "VALUES ('"+nuevos.Codigo +"', '"+ nuevos.Nombre +"','"+ nuevos.Descripcion +"',"+ " @IdMarca, @IdCategoria,"+ nuevos.Precio +")");
-
-                    // Setear parámetros de la consulta SQL
-                    datos.Comando.Parameters.AddWithValue("@IdMarca", nuevos.Marca.ID);
-                    datos.Comando.Parameters.AddWithValue("@IdCategoria", nuevos.Categoria.ID);
-                    // Ejecutar consulta SQL
-                    datos.ejecutarLectura();
-                }
-                catch (Exception ex)
-                {
-                    throw ex;
-                }
-                finally
-                {
-                    // Cerrar conexión
-                    datos.cerrarConexion();
-                }
-        }
-
         public List<Articulos> listar()
         {
             List<Articulos> lista = new List<Articulos>();
@@ -77,6 +50,74 @@ namespace Catalogo
                 datos.cerrarConexion();
 
             }
+        }
+
+        public List<Articulos> listarconSP()
+        {
+            List<Articulos> lista = new List<Articulos>();
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearProcedimiento("storedListar");
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    Articulos aux = new Articulos();
+                    aux.ID = (int)datos.Lector["Id"];
+                    aux.Codigo = (string)datos.Lector["Codigo"];
+                    aux.Nombre = (string)datos.Lector["Nombre"];
+                    aux.Descripcion = (string)datos.Lector["Descripcion"];
+                    aux.Marca = new Marca();
+                    aux.Marca.Descripcion = (string)datos.Lector["Marca"];
+                    aux.Categoria = new Categorias();
+                    aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
+                    aux.Precio = (decimal)datos.Lector["Precio"];
+
+                    lista.Add(aux);
+
+                }
+
+                return lista;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+
+            }
+        }
+       
+        public void cargarArticulo(Articulos nuevos)
+        {
+                // Crear instancia de AccesoDatos
+                AccesoDatos datos = new AccesoDatos();
+                try
+                {
+                    // Setear consulta SQL para insertar nuevo artículo
+                    datos.setearConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio) " +
+                          "VALUES ('"+nuevos.Codigo +"', '"+ nuevos.Nombre +"','"+ nuevos.Descripcion +"',"+ " @IdMarca, @IdCategoria,"+ nuevos.Precio +")");
+
+                    // Setear parámetros de la consulta SQL
+                    datos.Comando.Parameters.AddWithValue("@IdMarca", nuevos.Marca.ID);
+                    datos.Comando.Parameters.AddWithValue("@IdCategoria", nuevos.Categoria.ID);
+                    // Ejecutar consulta SQL
+                    datos.ejecutarLectura();
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    // Cerrar conexión
+                    datos.cerrarConexion();
+                }
         }
 
         public void eliminar(int id)

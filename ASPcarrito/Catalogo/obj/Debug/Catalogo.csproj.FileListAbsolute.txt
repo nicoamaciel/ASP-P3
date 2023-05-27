@@ -7,3 +7,12 @@ P:\UTN\Progra3\Repo\GestionArticulos\TP-WinForm_Equipo22\TPWinForm_Equipo22\Cata
 P:\UTN\Progra3\Repo\GestionArticulos\TP-WinForm_Equipo22\TPWinForm_Equipo22\Catalogo\obj\Debug\Catalogo.csproj.CopyComplete
 P:\UTN\Progra3\Repo\GestionArticulos\TP-WinForm_Equipo22\TPWinForm_Equipo22\Catalogo\obj\Debug\Catalogo.dll
 P:\UTN\Progra3\Repo\GestionArticulos\TP-WinForm_Equipo22\TPWinForm_Equipo22\Catalogo\obj\Debug\Catalogo.pdb
+P:\UTN\Progra3\ASP\Proyecto\ASP-P3\ASPcarrito\Catalogo\bin\Debug\Catalogo.dll
+P:\UTN\Progra3\ASP\Proyecto\ASP-P3\ASPcarrito\Catalogo\bin\Debug\Catalogo.pdb
+P:\UTN\Progra3\ASP\Proyecto\ASP-P3\ASPcarrito\Catalogo\bin\Debug\Dominio.dll
+P:\UTN\Progra3\ASP\Proyecto\ASP-P3\ASPcarrito\Catalogo\bin\Debug\Dominio.pdb
+P:\UTN\Progra3\ASP\Proyecto\ASP-P3\ASPcarrito\Catalogo\obj\Debug\Catalogo.csproj.AssemblyReference.cache
+P:\UTN\Progra3\ASP\Proyecto\ASP-P3\ASPcarrito\Catalogo\obj\Debug\Catalogo.csproj.CoreCompileInputs.cache
+P:\UTN\Progra3\ASP\Proyecto\ASP-P3\ASPcarrito\Catalogo\obj\Debug\Catalogo.csproj.CopyComplete
+P:\UTN\Progra3\ASP\Proyecto\ASP-P3\ASPcarrito\Catalogo\obj\Debug\Catalogo.dll
+P:\UTN\Progra3\ASP\Proyecto\ASP-P3\ASPcarrito\Catalogo\obj\Debug\Catalogo.pdb

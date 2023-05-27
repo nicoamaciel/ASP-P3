@@ -2,8 +2,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-    <h2>Listado de articulos</h2>
-    <asp:GridView runat="server" ID="dgvArticulos"> </asp:GridView>
-
+    <h2>Listado de articulos</h2> <hr />
+    <asp:GridView runat="server" CssClass="table" ID="dgvArticulos"> </asp:GridView>
 </asp:Content>

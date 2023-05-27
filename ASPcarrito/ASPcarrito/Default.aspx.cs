@@ -14,7 +14,8 @@ namespace ASPcarrito
         protected void Page_Load(object sender, EventArgs e)
         {
             ElementosCatalogo articulos = new ElementosCatalogo();
-            dgvArticulos.DataSource = articulos.listar();
+            dgvArticulos.DataSource = articulos.listarconSP();
+            /*Metodo dataBind rendera la tabla, la manda a armar en web*/
             dgvArticulos.DataBind();
 
         }
