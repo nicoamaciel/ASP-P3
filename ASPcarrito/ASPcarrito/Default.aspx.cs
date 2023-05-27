@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Dominio;
+using Catalogo;
 
 namespace ASPcarrito
 {
@@ -11,6 +13,9 @@ namespace ASPcarrito
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            ElementosCatalogo articulos = new ElementosCatalogo();
+            dgvArticulos.DataSource = articulos.listar();
+            dgvArticulos.DataBind();
 
         }
     }

@@ -57,3 +57,7 @@ P:\UTN\Progra3\ASP\Proyecto\ASP-P3\ASPcarrito\ASPcarrito\obj\Debug\ASPcarrito.cs
 P:\UTN\Progra3\ASP\Proyecto\ASP-P3\ASPcarrito\ASPcarrito\obj\Debug\ASPcarrito.csproj.CopyComplete
 P:\UTN\Progra3\ASP\Proyecto\ASP-P3\ASPcarrito\ASPcarrito\obj\Debug\ASPcarrito.dll
 P:\UTN\Progra3\ASP\Proyecto\ASP-P3\ASPcarrito\ASPcarrito\obj\Debug\ASPcarrito.pdb
+P:\UTN\Progra3\ASP\Proyecto\ASP-P3\ASPcarrito\ASPcarrito\bin\Catalogo.dll
+P:\UTN\Progra3\ASP\Proyecto\ASP-P3\ASPcarrito\ASPcarrito\bin\Dominio.dll
+P:\UTN\Progra3\ASP\Proyecto\ASP-P3\ASPcarrito\ASPcarrito\bin\Catalogo.pdb
+P:\UTN\Progra3\ASP\Proyecto\ASP-P3\ASPcarrito\ASPcarrito\bin\Dominio.pdb

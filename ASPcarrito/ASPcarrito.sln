@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.33423.256
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASPcarrito", "ASPcarrito\ASPcarrito.csproj", "{9B898054-164B-437D-8415-61520AC268F3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalogo", "Catalogo\Catalogo.csproj", "{16EC6E65-9C96-42C7-93CC-E3E5E3672698}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dominio", "Dominio\Dominio.csproj", "{2DF1BFCB-C828-4212-AFAE-3D0D1ECFD1C0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{9B898054-164B-437D-8415-61520AC268F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B898054-164B-437D-8415-61520AC268F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B898054-164B-437D-8415-61520AC268F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16EC6E65-9C96-42C7-93CC-E3E5E3672698}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16EC6E65-9C96-42C7-93CC-E3E5E3672698}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16EC6E65-9C96-42C7-93CC-E3E5E3672698}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16EC6E65-9C96-42C7-93CC-E3E5E3672698}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DF1BFCB-C828-4212-AFAE-3D0D1ECFD1C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DF1BFCB-C828-4212-AFAE-3D0D1ECFD1C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DF1BFCB-C828-4212-AFAE-3D0D1ECFD1C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DF1BFCB-C828-4212-AFAE-3D0D1ECFD1C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
