@@ -4,9 +4,14 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-
-    <h2>Listado de articulos</h2>
+    <div class="Titulo">
+        <h1>Twenty two store</h1>
+        <div class="Sub">
+            <p>Tienda de tecnologia</p>
+        </div>
     <hr />
+    </div>
+
 
     <%--el uso de la grilla es para pruebas de lectura de datos NO LA BORREN--%>
     <%--<asp:GridView runat="server" CssClass="table" ID="dgvArticulos" AutoGenerateColumns="false">
@@ -19,31 +24,24 @@
         </Columns>
     </asp:GridView>--%>
 
-    <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div id="cajas" class="row row-cols-1 row-cols-md-3 g-4">
         <%--class para orden horizontal cortesia de maxi--%>
         <asp:Repeater runat="server" ID="repRepetidor">
             <ItemTemplate>
 
-                <div class="card mb-3" style="max-width: 540px;">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            <img src="<%#Eval("URL") %>" class="card-img-top" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title"><%#Eval("Nombre") %></h5>
-                                <p class="card-text"><%#Eval("Descripcion") %></p>
-                                <p class="card-text">$<%#Eval("Precio") %></p>
-                                <p class="card-text"><%#Eval("Marca") %></p>
-                                <button type="button" class="btn btn-outline-primary">Agregar al carrito</button>
-                                <hr />
-                                <a href="#">Ver detalles</a>
-
-
-                            </div>
-                        </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="<%#Eval("URL") %>" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><%#Eval("Nombre") %></h5>
+                        <p class="card-text"><%#Eval("Descripcion") %></p>
+                        <p class="card-text">$<%#Eval("Precio") %></p>
+                        <p class="card-text"><%#Eval("Marca") %></p>
+                        <button type="button" class="btn btn-outline-success">Agregar al carrito</button>
+                        <hr />
+                        <a href="#">Ver detalles</a>
                     </div>
                 </div>
+                
             </ItemTemplate>
         </asp:Repeater>
 

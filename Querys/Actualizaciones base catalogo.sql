@@ -19,3 +19,5 @@ inner join IMAGENES I on I.IdArticulo = A.Id
 
 
 exec storedListarURL
+
+delete from ARTICULOS where Id=3
