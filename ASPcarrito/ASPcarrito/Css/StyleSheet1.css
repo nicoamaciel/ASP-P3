@@ -1,14 +1,11 @@
 ﻿body {
-    background-color: #212529;
     text-align: center;
 }
 
  body .Titulo {
-        background-color: #808080;
-        color: #ffffff;
+        color: black;
         text-align: center;
-        padding-top: 30px; /*Margen superior*/
-        padding: 20px; /*Margen inferior*/
+    
  }
 
   body .Titulo .Sub {
@@ -16,17 +13,13 @@
             text-align: center;
    }
 
-  body #cajas.row.row-cols-1.row-cols-md-3.g-4 {
-        background-color: #808080;
-  }
 
-.card {
-    margin-left: 90px;
-    padding: 20px 0; /*Margen inferior*/
-}
+
+
 
 footer{
     background-color: #212529;
     color: #ffffff;
     text-align: center;
+    height:120px;
 }
