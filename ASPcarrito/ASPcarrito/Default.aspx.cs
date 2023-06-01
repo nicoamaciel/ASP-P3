@@ -12,7 +12,7 @@ namespace ASPcarrito
     public partial class Default : System.Web.UI.Page
     {
         public List<Articulos> listaArticulos { get; set; }
-             List<int> listaId=new List<int>();
+        
 
 
 
@@ -26,34 +26,19 @@ namespace ASPcarrito
                 /*Metodo dataBind rendera la tabla, la manda a armar en web*/
            listaArticulos = articulos.listarconSP();
             Session.Add("listaArticulos", listaArticulos);
-                
 
 
+            if (!IsPostBack) { 
              
                 repRepetidor.DataSource = Session["listaArticulos"];
                 repRepetidor.DataBind();
-            
+            }
 
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Button btn=(Button)sender;
-          string  idAux = btn.CommandArgument;
-
-
-            int id;
-            if (int.TryParse(idAux, out id))
-            {
-             
-                listaId.Add(id);
-
-
-            }
-            else
-            {
-                
-            }
+           
 
 
         }
