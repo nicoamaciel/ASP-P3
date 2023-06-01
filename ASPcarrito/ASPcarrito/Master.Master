@@ -30,7 +30,7 @@
                         </ul>
                         <div class="d-flex" role="search">
               
-                            <button class="btn btn-outline-success" type="submit">Ver Carrito</button>
+                            <a class="btn btn-outline-success" href="Carrito.aspx" type="submit">Ver Carrito</a>
                         </div>
                     </div>
                 </div>
