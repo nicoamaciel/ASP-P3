@@ -36,12 +36,10 @@
                         <div class="col-md-12 text-center">
                             <div class="card-body">
                                 <h5 class="card-title"><%#Eval("Nombre") %></h5>
-                                <p class="card-text">Marca: <%#Eval("Marca") %></p>
-                                <p class="card-text"><%#Eval("Descripcion") %></p>
                                 <p class="card-text">Precio:$<%#Eval("Precio") %></p>
-                                <button type="button" class="btn btn-outline-primary ">Agregar al carrito</button>
+                                <asp:Button ID="Button1" CssClass="btn btn-dark" runat="server" Text="Agragar al carro" OnClick="Button1_Click" CommandArgument='<%#Eval("ID") %>' />
                                 <hr />
-                                <a href="#">Ver detalles</a>
+                                <a href="detalleArticulo.aspx?id=<%#Eval("ID") %>">Ver detalles</a>
                             </div>
                         </div>
                     </div>
@@ -50,5 +48,5 @@
         </asp:Repeater>
 
     </div>
-
+    <script src="JS/JavaScript.js"></script>
 </asp:Content>

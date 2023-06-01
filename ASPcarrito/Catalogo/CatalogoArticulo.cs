@@ -301,6 +301,53 @@ namespace Catalogo
         }
 
 
+
+        public Articulos buscarPorId(int id)
+        {
+            Articulos articulo = null;
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta("SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion 'Marca', C.Descripcion 'Categoria', A.Precio, I.ImagenURL " +
+                                     "FROM ARTICULOS A, MARCAS M, CATEGORIAS C, IMAGENES I " +
+                                     "WHERE M.Id = A.IdMarca AND C.Id = A.IdCategoria AND A.Id = @Id AND I.IDArticulo = A.Id");
+                datos.setearParametro("@Id", id);
+                datos.ejecutarLectura();
+
+                if (datos.Lector.Read())
+                {
+                    articulo = new Articulos();
+                    articulo.ID = (int)datos.Lector["Id"];
+                    articulo.Codigo = (string)datos.Lector["Codigo"];
+                    articulo.Nombre = (string)datos.Lector["Nombre"];
+                    articulo.Descripcion = (string)datos.Lector["Descripcion"];
+                    articulo.Marca = new Marca();
+                    articulo.Marca.Descripcion = (string)datos.Lector["Marca"];
+                    articulo.Categoria = new Categorias();
+                    articulo.Categoria.Descripcion = (string)datos.Lector["Categoria"];
+                    articulo.Precio = (decimal)datos.Lector["Precio"];
+                    articulo.URL = new Imagenes();
+                    articulo.URL.ImagenURL = (string)datos.Lector["ImagenURL"];
+                }
+
+                return articulo;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+
+
+
+
+
     }
 
 }
