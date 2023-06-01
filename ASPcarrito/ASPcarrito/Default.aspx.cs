@@ -24,15 +24,15 @@ namespace ASPcarrito
                 //dgvArticulos.DataSource = articulos.listarconSP();
                 //dgvArticulos.DataBind();
                 /*Metodo dataBind rendera la tabla, la manda a armar en web*/
-                listaArticulos = articulos.listarconSP();
+           listaArticulos = articulos.listarconSP();
+            Session.Add("listaArticulos", listaArticulos);
+                
 
 
-            if (!IsPostBack)
-            {
              
-                repRepetidor.DataSource = listaArticulos;
+                repRepetidor.DataSource = Session["listaArticulos"];
                 repRepetidor.DataBind();
-            }
+            
 
         }
 
@@ -55,6 +55,15 @@ namespace ASPcarrito
                 
             }
 
+
+        }
+
+        protected void filtro_TextChanged(object sender, EventArgs e)
+        {
+            List<Articulos> lista = (List<Articulos>)Session["listaArticulos"];
+            List<Articulos> listaFiltrada= lista.FindAll(x=> x.Nombre.ToUpper().Contains(filtro.Text.ToUpper()));
+            repRepetidor.DataSource= listaFiltrada;
+            repRepetidor.DataBind();
 
         }
     }

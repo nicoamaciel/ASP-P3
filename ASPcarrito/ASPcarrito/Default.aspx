@@ -11,8 +11,8 @@
         </div>
     <hr />
     </div>
-
-
+    <asp:Label ID="filtrolbl" runat="server" Text="Busqueda:"></asp:Label>
+    <asp:TextBox ID="filtro" runat="server" AutoPostBack="true" OnTextChanged="filtro_TextChanged" placeholder="Nombre del Articulo"  ></asp:TextBox>
     <%--el uso de la grilla es para pruebas de lectura de datos NO LA BORREN--%>
     <%--<asp:GridView runat="server" CssClass="table" ID="dgvArticulos" AutoGenerateColumns="false">
         <Columns>
