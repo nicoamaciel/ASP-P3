@@ -34,3 +34,12 @@ C:\Users\Nicolas\Desktop\Pruebas\ASP-P3\ASPcarrito\Catalogo\obj\Debug\Catalogo.c
 C:\Users\Nicolas\Desktop\Pruebas\ASP-P3\ASPcarrito\Catalogo\obj\Debug\Catalogo.csproj.CopyComplete
 C:\Users\Nicolas\Desktop\Pruebas\ASP-P3\ASPcarrito\Catalogo\obj\Debug\Catalogo.dll
 C:\Users\Nicolas\Desktop\Pruebas\ASP-P3\ASPcarrito\Catalogo\obj\Debug\Catalogo.pdb
+C:\Users\User\Desktop\web\ASP-P3\ASPcarrito\Catalogo\bin\Debug\Catalogo.dll
+C:\Users\User\Desktop\web\ASP-P3\ASPcarrito\Catalogo\bin\Debug\Catalogo.pdb
+C:\Users\User\Desktop\web\ASP-P3\ASPcarrito\Catalogo\bin\Debug\Dominio.dll
+C:\Users\User\Desktop\web\ASP-P3\ASPcarrito\Catalogo\bin\Debug\Dominio.pdb
+C:\Users\User\Desktop\web\ASP-P3\ASPcarrito\Catalogo\obj\Debug\Catalogo.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\web\ASP-P3\ASPcarrito\Catalogo\obj\Debug\Catalogo.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\web\ASP-P3\ASPcarrito\Catalogo\obj\Debug\Catalogo.csproj.CopyComplete
+C:\Users\User\Desktop\web\ASP-P3\ASPcarrito\Catalogo\obj\Debug\Catalogo.dll
+C:\Users\User\Desktop\web\ASP-P3\ASPcarrito\Catalogo\obj\Debug\Catalogo.pdb

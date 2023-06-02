@@ -22,3 +22,9 @@ C:\Users\Nicolas\Desktop\Pruebas\ASP-P3\ASPcarrito\Dominio\obj\Debug\Dominio.csp
 C:\Users\Nicolas\Desktop\Pruebas\ASP-P3\ASPcarrito\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
 C:\Users\Nicolas\Desktop\Pruebas\ASP-P3\ASPcarrito\Dominio\obj\Debug\Dominio.dll
 C:\Users\Nicolas\Desktop\Pruebas\ASP-P3\ASPcarrito\Dominio\obj\Debug\Dominio.pdb
+C:\Users\User\Desktop\web\ASP-P3\ASPcarrito\Dominio\bin\Debug\Dominio.dll
+C:\Users\User\Desktop\web\ASP-P3\ASPcarrito\Dominio\bin\Debug\Dominio.pdb
+C:\Users\User\Desktop\web\ASP-P3\ASPcarrito\Dominio\obj\Debug\Dominio.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\web\ASP-P3\ASPcarrito\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\web\ASP-P3\ASPcarrito\Dominio\obj\Debug\Dominio.dll
+C:\Users\User\Desktop\web\ASP-P3\ASPcarrito\Dominio\obj\Debug\Dominio.pdb

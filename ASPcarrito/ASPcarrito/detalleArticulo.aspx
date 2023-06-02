@@ -42,7 +42,7 @@
                   <div class="col-md-4"><a href="Default.aspx"><div class="btn btn-danger" style="height:43px"><p>regresar</p>
                                                                </div></a></div>
                   <div class="col-md-4"></div>
-                  <div class="col-md-4"><asp:Button ID="btnAgregar" runat="server" Text="Add carrito" CssClass="btn btn-success b1" /></div>
+                  <div class="col-md-4"><asp:Button ID="btnAgregar" runat="server" Text="Add carrito" OnClick="btnAgregar_Click" CssClass="btn btn-success b1" /></div>
 
 </div>
 
