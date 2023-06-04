@@ -103,7 +103,7 @@ namespace Catalogo
 
             try
             {
-                datos.setearProcedimiento("storedListarURL");
+                datos.setearProcedimiento("SPArticuloImg");
                 datos.setearParametro("@Id", int.Parse(id));
                 datos.ejecutarLectura();
 
@@ -345,8 +345,6 @@ namespace Catalogo
             }
         }
 
-
-
         public Articulos buscarPorId(int id)
         {
             Articulos articulo = null;
@@ -387,10 +385,6 @@ namespace Catalogo
                 datos.cerrarConexion();
             }
         }
-
-
-
-
 
 
     }

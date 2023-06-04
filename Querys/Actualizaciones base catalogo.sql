@@ -14,7 +14,7 @@ INSERT into IMAGENES(IdArticulo,ImagenUrl) VALUES
 (14,'https://http2.mlstatic.com/D_NQ_NP_626328-MLA44456373038_122020-O.webp'),
 (15,'https://support.apple.com/library/APPLE/APPLECARE_ALLGEOS/SP845/apple-tv-4k-2gen-ports-mx.png')
 go
-
+--SP para Articulos
 ALTER procedure storedListarURL as 
 select A.Id, A.Codigo, A.Nombre, A.Descripcion, A.Precio, M.Descripcion as Marca, C.Descripcion as Categoria, (select  top 1(ImagenUrl)
 from IMAGENES I
@@ -25,8 +25,49 @@ inner join CATEGORIAS C on C.Id = A.IdCategoria
 
 GO
 exec storedListarURL
+go
 
-delete from ARTICULOS where Id=3
+ALTER PROCEDURE SPArticuloImg(
+    @id int
+)
+AS
+BEGIN
+    -- Obtener el primer artículo de la tabla
+    DECLARE @Articulo TABLE (
+        Id int,
+        Codigo varchar(50),
+        Nombre varchar(100),
+        Descripcion varchar(200),
+        Precio decimal(18, 2),
+        Marca varchar(100),
+        Categoria varchar(100)
+    )
+
+    INSERT INTO @Articulo (Id, Codigo, Nombre, Descripcion, Precio, Marca, Categoria)
+    EXEC SPArticulosID @id
+        
+
+    -- Obtener la imagen del artículo
+    DECLARE @ImagenUrl varchar(200)
+
+    SELECT TOP 1 @ImagenUrl = ImagenUrl
+    FROM IMAGENES
+    WHERE IdArticulo = @id
+
+    -- Devolver los datos del artículo con la imagen
+    SELECT
+        Id,
+        Codigo,
+        Nombre,
+        Descripcion,
+        Precio,
+        Marca,
+        Categoria,
+        @ImagenUrl AS ImagenUrl
+    FROM @Articulo
+END
+go
+
 GO
 
 create procedure SPArticulosID (
@@ -53,4 +94,7 @@ create procedure SPImagenesTop
 as 
 select  IdArticulo, Id, ImagenUrl
 from IMAGENES I
+go
+
+
 

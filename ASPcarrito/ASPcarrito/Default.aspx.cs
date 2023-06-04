@@ -41,8 +41,9 @@ namespace ASPcarrito
             if (Session["Carrito"] != null)
             {
                 ElementosCatalogo Articulos = new ElementosCatalogo();
-                List<Articulos> productos = Articulos.listarSPdeID(((Button)sender).CommandArgument);
+                List<Articulos> productos = Articulos.listarSPImg(((Button)sender).CommandArgument);
                 List<Articulos> carrito = (List<Articulos>)Session["Carrito"];
+
                 carrito.AddRange(productos);
                 Session["Carrito"] = carrito;
             }
