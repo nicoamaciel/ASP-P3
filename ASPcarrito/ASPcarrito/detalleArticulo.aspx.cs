@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 using Dominio;
 using Catalogo;
 using System.Data;
+using System.Collections;
+using System.Drawing.Imaging;
 
 namespace ASPcarrito
 {
@@ -14,30 +16,38 @@ namespace ASPcarrito
     {
 
         public List<Articulos> listaArticulos { get; set; }
-        public int ArtId { get; set; }
+        public List<Imagenes> listaImagen { get; set; }
 
+        public string ArtId;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            if (Request.QueryString["id"] != null)
-            {
-                ArtId = Convert.ToInt32(Request.QueryString["id"]);
-            }
-
             ElementosCatalogo catalogo = new ElementosCatalogo();
-            listaArticulos = catalogo.listarconSP();
-
+            CatalogoImagenes img = new CatalogoImagenes();
+            if (!IsPostBack)
+            {
+                if (Request.QueryString["id"] != null)
+                {
+                    ArtId = Request.QueryString["id"];
+                    listaImagen = img.listar(ArtId);
+                    listaArticulos = catalogo.listarSPdeID(ArtId);
+                }
+                else
+                {
+                    return;
+                }
+                
+            }
         }
-
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (Session["ID"] != null)
+            if (Session["Carrito"] != null)
             {
-                DataTable dt = (DataTable)Session["ID"];
-                DataRow dr = dt.NewRow();
-                dr["ID"] = Request.QueryString["id"];
-                dt.Rows.Add(dr);
+                ElementosCatalogo Articulos = new ElementosCatalogo();
+                List<Articulos> productos = Articulos.listarSPdeID(ArtId);
+                List<Articulos> carrito = (List<Articulos>)Session["Carrito"];
+                carrito.AddRange(productos);
+                Session["Carrito"] = carrito;
             }
         }
     }

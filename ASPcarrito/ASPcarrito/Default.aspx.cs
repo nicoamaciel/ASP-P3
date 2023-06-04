@@ -22,12 +22,13 @@ namespace ASPcarrito
                 /*Metodo dataBind rendera la tabla, la manda a armar en web*/
             listaArticulos = articulos.listarconSP();
             Session.Add("listaArticulos", listaArticulos);
-
-
             if (!IsPostBack) {
-                DataTable dt = new DataTable();
-                dt.Columns.Add("ID");
-                Session["ID"] = dt;
+
+                if (Session["Carrito"] == null)
+                {
+                    List<Articulos> myList = new List<Articulos>();
+                    Session["Carrito"] = myList;
+                }
                 repRepetidor.DataSource = Session["listaArticulos"];
                 repRepetidor.DataBind();
             }
@@ -36,12 +37,14 @@ namespace ASPcarrito
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            if (Session["ID"] != null)
+             
+            if (Session["Carrito"] != null)
             {
-                DataTable dt = (DataTable)Session["ID"];
-                DataRow dr = dt.NewRow();
-                dr["ID"] = ((Button)sender).CommandArgument;
-                dt.Rows.Add(dr);
+                ElementosCatalogo Articulos = new ElementosCatalogo();
+                List<Articulos> productos = Articulos.listarSPdeID(((Button)sender).CommandArgument);
+                List<Articulos> carrito = (List<Articulos>)Session["Carrito"];
+                carrito.AddRange(productos);
+                Session["Carrito"] = carrito;
             }
 
 

@@ -8,16 +8,49 @@ update IMAGENES SET ImagenUrl= 'https://gmedia.playstation.com/is/image/SIEPDC/p
 update IMAGENES SET ImagenUrl= 'https://www.sony.com.ar/image/6cba5e659baacc3e99433b4d7f28de6c?fmt=pjpeg&wid=330&bgcolor=FFFFFF&bgc=FFFFFF' where IdArticulo=4
 update IMAGENES SET ImagenUrl= 'https://i.blogs.es/9da288/moto-g7-/1366_2000.jpg' where IdArticulo=2
 
+INSERT into IMAGENES(IdArticulo,ImagenUrl) VALUES
+(2,'https://ar.celulares.com/fotos/motorola-moto-g7-play-80207-m.jpg'),
+(4,'https://intercompras.com/images/product/SONY_KDL-55EX720.jpg'),
+(14,'https://http2.mlstatic.com/D_NQ_NP_626328-MLA44456373038_122020-O.webp'),
+(15,'https://support.apple.com/library/APPLE/APPLECARE_ALLGEOS/SP845/apple-tv-4k-2gen-ports-mx.png')
+go
 
-
-create procedure storedListarURL as 
-select A.Id, A.Codigo, A.Nombre, A.Descripcion, A.Precio, M.Descripcion as Marca, C.Descripcion as Categoria, I.ImagenUrl as ImagenUrl 
+ALTER procedure storedListarURL as 
+select A.Id, A.Codigo, A.Nombre, A.Descripcion, A.Precio, M.Descripcion as Marca, C.Descripcion as Categoria, (select  top 1(ImagenUrl)
+from IMAGENES I
+WHERE I.IdArticulo=A.Id) as ImagenUrl 
 from ARTICULOS A
 inner join MARCAS M on M.Id = A.IdMarca
 inner join CATEGORIAS C on C.Id = A.IdCategoria
-inner join IMAGENES I on I.IdArticulo = A.Id
 
-
+GO
 exec storedListarURL
 
 delete from ARTICULOS where Id=3
+GO
+
+create procedure SPArticulosID (
+    @id int
+)
+as 
+select A.Id, A.Codigo, A.Nombre, A.Descripcion, A.Precio, M.Descripcion as Marca, C.Descripcion as Categoria
+from ARTICULOS A
+inner join MARCAS M on M.Id = A.IdMarca
+inner join CATEGORIAS C on C.Id = A.IdCategoria
+WHERE @id=A.Id
+GO
+
+create procedure SPImagenes(
+     @id int
+)
+as 
+select Id,IdArticulo,ImagenUrl
+from IMAGENES I
+WHERE IdArticulo=@id
+go
+
+create procedure SPImagenesTop
+as 
+select  IdArticulo, Id, ImagenUrl
+from IMAGENES I
+

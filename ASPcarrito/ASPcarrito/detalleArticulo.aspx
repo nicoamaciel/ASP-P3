@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="detalleArticulo.aspx.cs" Inherits="ASPcarrito.Formulario_web1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="detalleArticulo.aspx.cs" Inherits="ASPcarrito.Formulario_web1" EnableEventValidation="false" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
 
@@ -6,23 +6,48 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
   <asp:Panel runat="server">
-        <% foreach (Dominio.Articulos art in listaArticulos)
-        {
-            if (art.ID == ArtId)
-            {
+      <% if (listaImagen != null) { %>
+      <% foreach (Dominio.Imagenes img in listaImagen)
+              {
+                  
         %>
-
-
-
-
-      <div class="row mt-5  d-flex align-items-center justify-content-center" style="height:700px">
-
           <div class="col-lg-5 mt-5">
+              <div id="carouselExampleIndicators" class="carousel slide">
+                  <div class="carousel-inner">
+                      <div class="carousel-item active">
+                          <img src="<%=img.ImagenURL %>" class="d-block w-100" alt="...">
 
-<img src="<%= art.URL %>" class="card-img-top" alt="..." style="width:100%;height:600px;">
+                      </div>
+
+                  </div>
+                  <button cssclass="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                      <span cssclass="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span cssclass="visually-hidden">anterior</span>
+
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">siguiente</span>
+
+                  </button>
+
+              </div>
 
           </div>
+          <%
+                      
+                  }
+              %>
+      <% } %>
 
+      <% if (listaArticulos != null) { %>
+        <% foreach (Dominio.Articulos art in listaArticulos)
+        {
+            if (art.ID == Convert.ToInt32(ArtId))
+            {
+        %>
+      <div class="row mt-5  d-flex align-items-center justify-content-center" style="height:700px">
+          
   <div class="col-lg-5 mt-5">
 
 
@@ -44,24 +69,14 @@
                   <div class="col-md-4"></div>
                   <div class="col-md-4"><asp:Button ID="btnAgregar" runat="server" Text="Add carrito" OnClick="btnAgregar_Click" CssClass="btn btn-success b1" /></div>
 
-</div>
+                  </div>
 
               </div>
 
               <br/>
-
-
-
           </div>
 
       </div>
-
-
-
-
-       
-
-
        <div class="mt-5" style="max-width: 520px; margin:auto"><div class="col-md-12 d-flex justify-content-center align-items-center" style="height:250px">
             
         </div>
@@ -72,24 +87,12 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <% 
-                    break;
-                }
+        <%
+                    break;}
             }
         %>
+
+      <% } %>
     </asp:Panel>
 
 

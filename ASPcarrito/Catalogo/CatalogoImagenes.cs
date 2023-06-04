@@ -9,26 +9,24 @@ namespace Catalogo
 {
     public class CatalogoImagenes
     {
-        public List<Imagenes> listar(Articulos articulos)
+        public List<Imagenes> listar(string id)
         {
             List<Imagenes> lista = new List<Imagenes>();
             AccesoDatos datos = new AccesoDatos();
 
             try
             {
-                datos.setearConsulta("select ID,IdArticulo, ImagenURL from IMAGENES ");
+                datos.setearProcedimiento("SPImagenes");
+                datos.setearParametro("@Id", int.Parse(id));
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
                 {
                     Imagenes aux = new Imagenes();
-                    if (articulos.ID == (int)datos.Lector["IdArticulo"])
-                    {
+                    
                         aux.ID = (int)datos.Lector["Id"];
                         aux.ImagenURL = (string)datos.Lector["ImagenURL"];
                         lista.Add(aux);
-                    }
-
                 }
                 datos.cerrarConexion();
                 return lista;
@@ -40,13 +38,39 @@ namespace Catalogo
             }
         }
         //
-        public void eliminar(int id)
+        public List<Imagenes> listartop()
+        {
+            List<Imagenes> lista = new List<Imagenes>();
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearProcedimiento("SPImagenesTop");
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    Imagenes aux = new Imagenes();
+                    aux.ID = (int)datos.Lector["Id"];
+                    aux.ImagenURL = (string)datos.Lector["ImagenURL"];
+                    lista.Add(aux);
+                }
+                datos.cerrarConexion();
+                return lista;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+        public void eliminar(string id)
         {
             try
             {
                 AccesoDatos datos = new AccesoDatos();
                 datos.setearConsulta("delete from IMAGENES where IdArticulo = @id");
-                datos.setearParametro("@id", id);
+                datos.setearParametro("@id", int.Parse(id));
                 datos.ejecutarAccion();
             }
             catch (Exception ex)

@@ -11,14 +11,15 @@ namespace Catalogo
 {
     public class ElementosCatalogo
     {
-        public List<Articulos> listar()
+        public List<Articulos> listarSPdeID(string id)
         {
             List<Articulos> lista = new List<Articulos>();
             AccesoDatos datos = new AccesoDatos();
 
             try
             {
-                datos.setearConsulta("select A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion 'Marca', C.Descripcion 'Categoria' , A.Precio from ARTICULOS as A,MARCAS M,CATEGORIAS C WHERE M.Id=IdMarca and C.Id=IdCategoria");
+                datos.setearProcedimiento("SPArticulosID");
+                datos.setearParametro("@Id", int.Parse(id));
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
@@ -94,7 +95,51 @@ namespace Catalogo
 
             }
         }
-       
+
+        public List<Articulos> listarSPImg(string id)
+        {
+            List<Articulos> lista = new List<Articulos>();
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearProcedimiento("storedListarURL");
+                datos.setearParametro("@Id", int.Parse(id));
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    Articulos aux = new Articulos();
+                    aux.ID = (int)datos.Lector["Id"];
+                    aux.Codigo = (string)datos.Lector["Codigo"];
+                    aux.Nombre = (string)datos.Lector["Nombre"];
+                    aux.Descripcion = (string)datos.Lector["Descripcion"];
+                    aux.Marca = new Marca();
+                    aux.Marca.Descripcion = (string)datos.Lector["Marca"];
+                    aux.Categoria = new Categorias();
+                    aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
+                    aux.Precio = (decimal)datos.Lector["Precio"];
+                    aux.URL = new Imagenes();
+                    aux.URL.ImagenURL = (string)datos.Lector["ImagenUrl"];
+
+                    lista.Add(aux);
+
+                }
+
+                return lista;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+
+            }
+        }
+
         public void cargarArticulo(Articulos nuevos)
         {
                 

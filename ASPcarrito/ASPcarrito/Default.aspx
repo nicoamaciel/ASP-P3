@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="ASPcarrito.Default" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="ASPcarrito.Default" EnableEventValidation="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -24,9 +24,9 @@
         </Columns>
     </asp:GridView>--%>
 
-    <div id="cajas" class="row row-cols-1 row-cols-md-3 g-4">
+    <div id="cajas" class="row row-cols-1 row-cols-md-3 g-4" >
         <%--class para orden horizontal cortesia de maxi--%>
-        <asp:Repeater runat="server" ID="repRepetidor">
+        <asp:Repeater runat="server" ID="repRepetidor" >
              <ItemTemplate>
                 <div class="card mt-5" style="max-width: 320px;  margin:auto">
                     <div class="row g-0">
