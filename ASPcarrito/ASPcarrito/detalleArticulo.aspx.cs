@@ -18,37 +18,65 @@ namespace ASPcarrito
         public List<Articulos> listaArticulos { get; set; }
         public List<Imagenes> listaImagen { get; set; }
 
-        public string ArtId;
-
-        protected void Page_Load(object sender, EventArgs e)
+        public string ArtId
         {
-            ElementosCatalogo catalogo = new ElementosCatalogo();
-            CatalogoImagenes img = new CatalogoImagenes();
-            if (!IsPostBack)
+            get
             {
                 if (Request.QueryString["id"] != null)
                 {
-                    ArtId = Request.QueryString["id"];
-                    listaImagen = img.listar(ArtId);
-                    listaArticulos = catalogo.listarSPdeID(ArtId);
+                    return Request.QueryString["id"];
                 }
-                else
-                {
-                    return;
-                }
-                
+                return null;
             }
         }
-        protected void btnAgregar_Click(object sender, EventArgs e)
+        protected void Page_Load(object sender, EventArgs e)
+        {
+                
+                if (!IsPostBack)
+                {
+                ElementosCatalogo catalogo = new ElementosCatalogo();
+                CatalogoImagenes img = new CatalogoImagenes();
+                    if (Request.QueryString["id"] != null)
+                    {
+                        listaImagen = img.listar(ArtId);
+                        listaArticulos = catalogo.listarSPdeID(ArtId);
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+
+                // Mostrar contenido actualizado
+                if (listaImagen != null)
+                {
+                    foreach (Dominio.Imagenes img in listaImagen)
+                    {
+                        // Mostrar imágenes
+                    }
+                }
+
+                if (listaArticulos != null)
+                {
+                    foreach (Dominio.Articulos art in listaArticulos)
+                    {
+                        // Mostrar artículos
+                    }
+                }
+            }
+            protected void btnAgregar_Click(object sender, EventArgs e)
         {
             if (Session["Carrito"] != null)
             {
                 ElementosCatalogo Articulos = new ElementosCatalogo();
-                List<Articulos> productos = Articulos.listarSPdeID(ArtId);
+                List<Articulos> productos = Articulos.listarSPdeID(Request.QueryString["id"]);
                 List<Articulos> carrito = (List<Articulos>)Session["Carrito"];
                 carrito.AddRange(productos);
                 Session["Carrito"] = carrito;
             }
+            Response.Redirect(Request.RawUrl);
         }
+
+
     }
 }
