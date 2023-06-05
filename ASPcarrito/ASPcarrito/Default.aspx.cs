@@ -41,10 +41,26 @@ namespace ASPcarrito
             if (Session["Carrito"] != null)
             {
                 ElementosCatalogo Articulos = new ElementosCatalogo();
-                List<Articulos> productos = Articulos.listarSPImg(((Button)sender).CommandArgument);
+                List<Articulos> productos = Articulos.listarSPImg(Convert.ToString(((Button)sender).CommandArgument));
                 List<Articulos> carrito = (List<Articulos>)Session["Carrito"];
+                foreach (Articulos producto in productos)
+                {
+                    // Verificar si el producto ya existe en el carrito
+                    Articulos articuloExistente = carrito.FirstOrDefault(p => p.ID == producto.ID);
 
-                carrito.AddRange(productos);
+                    if (articuloExistente != null)
+                    {
+                        // El producto ya existe en el carrito, incrementar su cantidad
+                        articuloExistente.cantidad++;
+                    }
+                    else
+                    {
+                        // El producto no existe en el carrito, agregarlo con una cantidad de 1
+                        producto.cantidad = 1;
+                        carrito.Add(producto);
+                    }
+                }
+
                 Session["Carrito"] = carrito;
             }
 

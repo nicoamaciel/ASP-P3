@@ -22,52 +22,63 @@ namespace ASPcarrito
             if (!IsPostBack)
             {
                 if (Session["Carrito"] != null)
+                {
                     listaArticulos = (List<Articulos>)Session["Carrito"];
-            }
-
-        }
-
-        private void BindArticulos(List<Articulos> listaArticulos)
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.Append("<table class='table'>");
-            sb.Append("<thead>");
-            sb.Append("<tr>");
-            sb.Append("<th></th>");
-            sb.Append("<th></th>");
-            sb.Append("<th>Nombre</th>");
-            sb.Append("<th>Descripcion</th>");
-            sb.Append("<th>Marca</th>");
-            sb.Append("<th>Categoria</th>");
-            sb.Append("<th>Precio</th>");
-            sb.Append("<th>Eliminar Articulo</th>");
-            sb.Append("<th>Agregar Otro</th>");
-            sb.Append("</tr>");
-            sb.Append("</thead>");
-            sb.Append("<tbody>");
-
-            foreach (Articulos articulo in listaArticulos)
-            {
-                sb.Append("<tr>");
-                sb.Append("<td></td>");
-                sb.Append("<td><img src='" + articulo.URL + "' class='mh-100' alt='...' style='width: 100px; height: 200px;' /></td>");
-                sb.Append("<td>" + articulo.Nombre + "</td>");
-                sb.Append("<td>" + articulo.Descripcion + "</td>");
-                sb.Append("<td>" + articulo.Marca + "</td>");
-                sb.Append("<td>" + articulo.Categoria + "</td>");
-
+                    rptArticulos.DataSource = listaArticulos;
+                    rptArticulos.DataBind();
+                }
+                else
+                {
+                Response.Redirect("Default.aspx");
+                }
 
             }
-        }
 
-        protected void btnAregar_Click(object sender, EventArgs e)
-        {
+
+            
 
         }
 
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
+            ElementosCatalogo Articulos = new ElementosCatalogo();
+            List<Articulos> productos = Articulos.listarSPImg(((Button)sender).CommandArgument);
+            List<Articulos> carrito = (List<Articulos>)Session["Carrito"];
+            foreach (Articulos producto in productos)
+            {
+                Articulos articuloExistente = carrito.FirstOrDefault(p => p.ID == producto.ID);
 
+                if (articuloExistente != null)
+                {
+                    articuloExistente.cantidad--;
+                    if (articuloExistente.cantidad == 0)
+                    {
+                        carrito.Remove(articuloExistente);
+                    }
+                }
+            }
+            Session["Carrito"] = carrito;
+            Response.Redirect(Request.Url.ToString());
+        }
+
+        protected void btnAumentar_Click(object sender, EventArgs e)
+        {
+            ElementosCatalogo Articulos = new ElementosCatalogo();
+            List<Articulos> productos = Articulos.listarSPImg(((Button)sender).CommandArgument);
+            List<Articulos> carrito = (List<Articulos>)Session["Carrito"];
+            foreach (Articulos producto in productos)
+            {
+                Articulos articuloExistente = carrito.FirstOrDefault(p => p.ID == producto.ID);
+
+                if (articuloExistente != null)
+                {
+                    articuloExistente.cantidad++;
+                    
+                }
+            }
+            Session["Carrito"] = carrito;
+            Response.Redirect(Request.Url.ToString());
         }
     }
+    
 }

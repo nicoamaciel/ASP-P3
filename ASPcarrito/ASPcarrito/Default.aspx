@@ -13,19 +13,8 @@
     </div>
     <asp:Label ID="filtrolbl" runat="server" Text="Busqueda:"></asp:Label>
     <asp:TextBox ID="filtro" runat="server" AutoPostBack="true" OnTextChanged="filtro_TextChanged" placeholder="Nombre del Articulo"  ></asp:TextBox>
-    <%--el uso de la grilla es para pruebas de lectura de datos NO LA BORREN--%>
-    <%--<asp:GridView runat="server" CssClass="table" ID="dgvArticulos" AutoGenerateColumns="false">
-        <Columns>
-            <asp:BoundField HeaderText="Codigo" DataField="Codigo" />
-            <asp:BoundField HeaderText="Nombre" DataField="Nombre" />
-            <asp:BoundField HeaderText="Categoria" DataField="Categoria" />
-            <asp:BoundField HeaderText="URL" DataField="URL" />
-
-        </Columns>
-    </asp:GridView>--%>
-
+    
     <div id="cajas" class="row row-cols-1 row-cols-md-3 g-4" >
-        <%--class para orden horizontal cortesia de maxi--%>
         <asp:Repeater runat="server" ID="repRepetidor" >
              <ItemTemplate>
                 <div class="card mt-5" style="max-width: 320px;  margin:auto">

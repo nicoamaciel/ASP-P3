@@ -104,7 +104,7 @@ namespace Catalogo
             try
             {
                 datos.setearProcedimiento("SPArticuloImg");
-                datos.setearParametro("@Id", int.Parse(id));
+                datos.setearParametro("@Id", id);
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
@@ -121,7 +121,6 @@ namespace Catalogo
                     aux.Precio = (decimal)datos.Lector["Precio"];
                     aux.URL = new Imagenes();
                     aux.URL.ImagenURL = (string)datos.Lector["ImagenUrl"];
-
                     lista.Add(aux);
 
                 }
